@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
+import { ItemsList } from "./ItemsList";
+import { Navigation } from "./Navigation";
 
 function App() {
+ const [cartCount, setCartCount]=useState(0);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation cartCount={cartCount} />
+      <Header/>
+      <ItemsList cartCount={cartCount} setCartCount={setCartCount} />
+      <Footer/>
     </div>
   );
 }
